@@ -114,6 +114,19 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .reason.warn .ck{background:var(--c-warn)}
 .reason small{display:block;font-size:13px;color:var(--c-text-4);line-height:19px}
 .warnbox{background:var(--c-warn-bg);border-radius:16px;padding:14px 16px}
+.hero{background:var(--c-white);border-radius:18px;padding:16px 18px}
+.hero .hl{font-size:14px;line-height:20px;color:var(--c-text-4)}
+.hero .hv{font-size:21px;line-height:29px;font-weight:700;letter-spacing:-.02em;color:var(--c-brand);margin-top:2px;font-variant-numeric:tabular-nums}
+.meter{display:flex;flex-direction:column;gap:8px;padding:0 2px}
+.meter .mt{display:flex;justify-content:space-between;font-size:13px;color:var(--c-text-4)}
+.meter .mt span:first-child{color:var(--c-text);font-weight:700}
+.meter .mb{height:10px;border-radius:5px;background:var(--c-higher);overflow:hidden}
+.meter .mb i{display:block;height:100%;border-radius:5px;background:var(--c-text)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{display:inline-flex;align-items:center;gap:5px;background:var(--c-white);border-radius:99px;padding:6px 11px 6px 8px;font-size:13px;font-weight:500;line-height:18px}
+.chips span svg{width:14px;height:14px;padding:2px;border-radius:50%;background:#9a9a9a;box-sizing:border-box}
+.chips span.hot{background:var(--c-brand-low);color:var(--c-brand);font-weight:700}
+.chips span.hot svg{background:var(--c-brand)}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .cmp div{background:var(--c-white);border-radius:14px;padding:12px 14px;border:1.5px solid transparent}
 .cmp div.win{border-color:var(--c-brand)}
@@ -144,6 +157,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .st .dd{font-size:13px;color:var(--c-text-4);line-height:19px}
 .st.hold .dd{color:var(--c-warn);font-weight:500}
 .ben{display:flex;flex-direction:column;gap:8px}
+.ben-l{margin:4px 2px 0;font-size:13px;line-height:19px;color:var(--c-text-4)}
 .ben div{background:var(--c-white);border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center}
 .ben .bt{flex:1;min-width:0}
 .ben .bt p{margin:0;font-size:15px;font-weight:700;line-height:22px}

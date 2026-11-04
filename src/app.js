@@ -5,6 +5,9 @@ function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(
 
 function cardHTML(c){
   let h = `<div class="card in"><div><div class="ch-t">${I[c.icon]||''}<span>${c.title}</span></div>${c.sub?`<div class="ch-s">${c.sub}</div>`:''}</div>`;
+  if(c.hero) h += `<div class="hero"><div class="hl">${c.hero[0]}</div><div class="hv">${c.hero[1]}</div></div>`;
+  if(c.meter) h += `<div class="meter"><div class="mt"><span>${c.meter[0]}</span><span>${c.meter[3]}</span></div><div class="mb"><i style="width:${c.meter[1]/c.meter[2]*100}%"></i></div></div>`;
+  if(c.chips) h += `<div class="chips">${c.chips.map(x=>`<span class="${x[1]?'hot':''}">${CHECK}${x[0]}</span>`).join('')}</div>`;
   if(c.cmp) h += `<div class="cmp">${c.cmp.map(x=>`<div class="${x.win?'win':''}"><div class="l">${x.l}</div><div class="v">${x.v}</div><div class="n">${x.n}</div></div>`).join('')}</div>`;
   if(c.warn) h += `<div class="warnbox"><div class="reason warn"><span class="ck">${BANG}</span><div><b>${c.warn[0]}</b><small>${c.warn[1]}</small></div></div></div>`;
   if(c.reasons) h += `<div class="reasons">${c.reasons.map(r=>`<div class="reason"><span class="ck">${CHECK}</span><div>${r[0]}</div></div>`).join('')}</div>`;
@@ -15,7 +18,7 @@ function cardHTML(c){
   if(c.rows && c.thumb) h += `<div class="thumbrow"><div class="thumb">${I.phone}</div><div class="rows" style="flex:1;min-width:0">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></div>`;
   else if(c.rows) h += `<div class="rows">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div>`;
   if(c.steps) h += `<div class="steps">${c.steps.map(s=>`<div class="st ${s[0]}"><span class="dot">${s[0]==='done'?CHECK:s[0]==='hold'?BANG:''}</span><div><div class="tt">${s[1]}</div>${s[2]?`<div class="dd">${s[2]}</div>`:''}</div></div>`).join('')}</div>`;
-  if(c.ben) h += `<div class="ben">${c.ben.map(b=>`<div><div class="bt"><p>${b[0]}</p><span>${b[1]}</span></div><span class="dday ${b[3]?'hot':''}">${b[2]}</span></div>`).join('')}</div>`;
+  if(c.ben) h += `<div class="ben">${c.benLabel?`<p class="ben-l">${c.benLabel}</p>`:''}${c.ben.map(b=>`<div><div class="bt"><p>${b[0]}</p><span>${b[1]}</span></div><span class="dday ${b[3]?'hot':''}">${b[2]}</span></div>`).join('')}</div>`;
   if(c.review) h += `<div class="review"><div class="stars">${c.review[0]}</div>${c.review[1]}</div>`;
   if(c.quote) h += `<div class="quote">${c.quote}</div>`;
   if(c.pills) h += `<div class="pills">${c.pills.map(p=>`<div class="pill ${p.p?'p':''}">${p.t}</div>`).join('')}</div>`;
