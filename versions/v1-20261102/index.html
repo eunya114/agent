@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>가입 에이전트 시나리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+
+<div class="app">
+  <aside class="side">
+    <div class="side-head">
+      <div class="eyebrow">U+ 가입 에이전트 · 고객 관점 시나리오</div>
+      <h1>빠르게 바꾸고, 손해는 하나도 안 보게</h1>
+      <p>시나리오를 고르면 씬별로 대화가 자동 재생돼요. 값은 모두 예시예요.</p>
+    </div>
+    <nav class="list" id="list" aria-label="시나리오 목록"></nav>
+  </aside>
+
+  <main class="stage">
+    <div class="scene-cap" aria-live="polite">
+      <div class="k" id="capK"></div>
+      <div class="t" id="capT"></div>
+    </div>
+    <div class="phone-wrap" id="wrap">
+      <div class="phone-box" id="box">
+        <div class="phone" id="phone">
+          <div class="sb"><span>9:41</span><span class="sb-r"><span style="width:17px;height:10px"></span><span style="width:15px;height:10px;border-radius:50%"></span><span style="width:25px;height:12px;border-radius:4px"></span></span></div>
+          <div class="hd">
+            <div class="hd-t">AI 검색 <span class="beta">Beta</span></div>
+            <div class="kw">키워드 검색</div>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <div class="conv" id="conv"></div>
+          <div class="ib"><div class="ib-f"><span>무엇이든 물어보세요</span>
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div></div>
+          <div class="home"></div>
+          <div class="push" id="push"><div class="pi">U+</div><div style="flex:1;min-width:0"><div class="pa"><span id="pa">U+ one</span><span>지금</span></div><div class="pt" id="pt"></div><div class="px" id="px"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="prog" id="prog"></div>
+    <div class="controls">
+      <button class="ctl" id="bRestart" aria-label="처음부터"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+      <button class="ctl" id="bPrev">이전 씬</button>
+      <button class="ctl main" id="bPlay">일시정지</button>
+      <button class="ctl" id="bNext">다음 씬</button>
+      <button class="ctl" id="bSpeed" aria-label="재생 속도">1x</button>
+    </div>
+  </main>
+</div>
+
+<script src="src/icons.js"></script>
+<script src="src/scenarios.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
