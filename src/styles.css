@@ -164,9 +164,14 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .ben .bt span{font-size:13px;color:var(--c-text-4)}
 .dday{font-size:12px;font-weight:700;padding:3px 8px;border-radius:99px;background:var(--c-high);color:#555;white-space:nowrap}
 .dday.hot{background:var(--c-brand-low);color:var(--c-brand)}
+.ch{display:flex;gap:12px;align-items:flex-start}
+.ch-m{flex:1;min-width:0}
+.hthumb{flex:none;width:52px;height:60px;border-radius:12px;background:var(--c-white);display:grid;place-items:center}
+.hthumb svg{width:40px;height:52px}
+.row .v small{font-size:12px;font-weight:400;color:var(--c-text-4)}
 .thumbrow{display:flex;gap:14px;align-items:flex-start}
 .thumb{flex:none;width:92px;height:116px;border-radius:14px;background:var(--c-white);display:grid;place-items:center}
-.thumb svg{width:44px;height:44px}
+.thumb svg{width:60px;height:80px}
 .review{background:var(--c-white);border-radius:14px;padding:12px 14px;font-size:15px;line-height:22px}
 .review .stars{color:var(--c-brand);letter-spacing:2px;font-size:18px;margin-bottom:4px}
 

@@ -4,7 +4,7 @@ const conv = $('conv');
 function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(); return d.firstElementChild; }
 
 function cardHTML(c){
-  let h = `<div class="card in"><div><div class="ch-t">${I[c.icon]||''}<span>${c.title}</span></div>${c.sub?`<div class="ch-s">${c.sub}</div>`:''}</div>`;
+  let h = `<div class="card in"><div class="ch"><div class="ch-m"><div class="ch-t">${I[c.icon]||''}<span>${c.title}</span></div>${c.sub?`<div class="ch-s">${c.sub}</div>`:''}</div>${c.headThumb?`<div class="hthumb">${DEVICE}</div>`:''}</div>`;
   if(c.hero) h += `<div class="hero"><div class="hl">${c.hero[0]}</div><div class="hv">${c.hero[1]}</div></div>`;
   if(c.meter) h += `<div class="meter"><div class="mt"><span>${c.meter[0]}</span><span>${c.meter[3]}</span></div><div class="mb"><i style="width:${c.meter[1]/c.meter[2]*100}%"></i></div></div>`;
   if(c.chips) h += `<div class="chips">${c.chips.map(x=>`<span class="${x[1]?'hot':''}">${CHECK}${x[0]}</span>`).join('')}</div>`;
@@ -15,7 +15,7 @@ function cardHTML(c){
   if(c.rec) h += `<div class="rec"><b>${c.rec[0]}</b>${c.rec[1]}</div>`;
   if(c.otp) h += `<div class="otp"><span>${c.otp[0]}</span><em>${c.otp[1]}</em></div>`;
   if(c.cons) h += `<div class="cons">${c.cons.map(x=>`<div><i>${CHECK}</i><span>${x}</span><u>보기</u></div>`).join('')}</div>`;
-  if(c.rows && c.thumb) h += `<div class="thumbrow"><div class="thumb">${I.phone}</div><div class="rows" style="flex:1;min-width:0">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></div>`;
+  if(c.rows && c.thumb) h += `<div class="thumbrow"><div class="thumb">${DEVICE}</div><div class="rows" style="flex:1;min-width:0">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></div>`;
   else if(c.rows) h += `<div class="rows">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div>`;
   if(c.steps) h += `<div class="steps">${c.steps.map(s=>`<div class="st ${s[0]}"><span class="dot">${s[0]==='done'?CHECK:s[0]==='hold'?BANG:''}</span><div><div class="tt">${s[1]}</div>${s[2]?`<div class="dd">${s[2]}</div>`:''}</div></div>`).join('')}</div>`;
   if(c.ben) h += `<div class="ben">${c.benLabel?`<p class="ben-l">${c.benLabel}</p>`:''}${c.ben.map(b=>`<div><div class="bt"><p>${b[0]}</p><span>${b[1]}</span></div><span class="dday ${b[3]?'hot':''}">${b[2]}</span></div>`).join('')}</div>`;
