@@ -6,6 +6,8 @@ function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(
 function cardHTML(c){
   let h = `<div class="card in"><div class="ch"><div class="ch-m"><div class="ch-t">${I[c.icon]||''}<span>${c.title}</span></div>${c.sub?`<div class="ch-s">${c.sub}</div>`:''}</div>${c.headThumb?`<div class="hthumb">${DEVICE}</div>`:''}</div>`;
   if(c.ticket) h += `<div class="ticket"><div class="tk-l">${I.gift}<div><b>${c.ticket[0]}</b><small>${c.ticket[2]}</small></div></div><div class="tk-v">${c.ticket[1]}</div></div>`;
+  if(c.receipt){ const r=c.receipt; h += `<div class="rcpt"><div class="rc-t"><span>${r.total[0]}</span><b>${r.total[1]}</b></div><div class="rc-l">${r.lines.map(l=>`<div class="ln ${l[2]||''}"><span>${l[0]}</span><span>${l[1]}</span></div>`).join('')}</div></div>`; }
+  if(c.track){ const t=c.track; h += `<div class="trk"><div class="tk-top"><span class="car">${t.carrier}</span><span class="eta">${t.eta}</span></div><div class="tk-no"><small>송장번호</small><b>${t.no}</b></div><div class="tk-steps">${t.steps.map((x,i)=>`<div class="${i<=t.cur?'on':''}${i===t.cur?' now':''}"><i></i><span>${x}</span></div>`).join('')}</div></div>${t.item?`<div class="tk-item"><span class="mini">${DEVICE}</span><div><b>${t.item[0]}</b><small>${t.item[1]}</small></div></div>`:''}`; }
   if(c.hero) h += `<div class="hero"><div class="hl">${c.hero[0]}</div><div class="hv">${c.hero[1]}</div></div>`;
   if(c.meter) h += `<div class="meter"><div class="mt"><span>${c.meter[0]}</span><span>${c.meter[3]}</span></div><div class="mb"><i style="width:${c.meter[1]/c.meter[2]*100}%"></i></div></div>`;
   if(c.chips) h += `<div class="chips">${c.chips.map(x=>`<span class="${x[1]?'hot':''}">${CHECK}${x[0]}</span>`).join('')}</div>`;

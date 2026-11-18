@@ -2,16 +2,20 @@
 let _dg=0;
 /* iPhone Duo 일러스트 (예시 이미지) · color: white | black */
 function dev(color){ const k=++_dg, w=color!=='black';
-  const frame=w?'#e6e7ea':'#2a2c31', edge=w?'#c3c6cc':'#15161a', back=w?'#f3f3f5':'#3a3d44';
-  return `<svg viewBox="0 0 64 86" fill="none"><defs><linearGradient id="sk${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e7d3"/><stop offset=".45" stop-color="#e7c39a"/><stop offset="1" stop-color="#a8714a"/></linearGradient></defs>
-  <rect x="4" y="8" width="30" height="70" rx="7" fill="${back}" stroke="${edge}"/>
-  <rect x="9" y="13" width="13" height="22" rx="5" fill="${w?'#e2e3e6':'#2b2d33'}" stroke="${edge}" stroke-width=".8"/>
-  <circle cx="15.5" cy="19.5" r="3.6" fill="#1c1d21"/><circle cx="15.5" cy="29" r="3.6" fill="#1c1d21"/>
-  <rect x="24" y="5" width="36" height="76" rx="8" fill="${frame}" stroke="${edge}"/>
-  <rect x="26.5" y="7.5" width="31" height="71" rx="6" fill="url(#sk${k})"/>
-  <path d="M26.5 52c8-6 17-4 31-12v38.5h-31z" fill="#c08a5c" opacity=".55"/>
-  <path d="M26.5 62c10-5 20-2 31-8v24.5h-31z" fill="#8e5a37" opacity=".5"/>
-  <rect x="38" y="10" width="8" height="2.4" rx="1.2" fill="#111"/></svg>`; }
+  const frame=w?'#dcdee2':'#2a2c31', edge=w?'#b9bcc3':'#121316', hinge=w?'#c9ccd1':'#1b1c20';
+  return `<svg viewBox="0 0 88 72" fill="none"><defs>
+  <linearGradient id="sk${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7ead8"/><stop offset=".42" stop-color="#e8c59c"/><stop offset="1" stop-color="#a36c45"/></linearGradient>
+  <linearGradient id="sh${k}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".16"/><stop offset=".46" stop-color="#000" stop-opacity="0"/><stop offset=".54" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient></defs>
+  <ellipse cx="44" cy="67" rx="34" ry="2.6" fill="#000" opacity=".08"/>
+  <path d="M8 10.5 L43 7 V65 L8 61.5 Q4 61 4 57 V15 Q4 11 8 10.5Z" fill="${frame}" stroke="${edge}"/>
+  <path d="M80 10.5 L45 7 V65 L80 61.5 Q84 61 84 57 V15 Q84 11 80 10.5Z" fill="${frame}" stroke="${edge}"/>
+  <rect x="42.6" y="6.6" width="2.8" height="58.8" rx="1.2" fill="${hinge}"/>
+  <path d="M10 13.2 L43 10 V62 L10 58.8 Q7 58.5 7 55.5 V16.5 Q7 13.5 10 13.2Z" fill="url(#sk${k})"/>
+  <path d="M78 13.2 L45 10 V62 L78 58.8 Q81 58.5 81 55.5 V16.5 Q81 13.5 78 13.2Z" fill="url(#sk${k})"/>
+  <path d="M7 44 C20 37 33 40 43 35 V62 L10 58.8 Q7 58.5 7 55.5Z M45 34 C57 30 69 34 81 28 V55.5 Q81 58.5 78 58.8 L45 62Z" fill="#c38a5b" opacity=".5"/>
+  <path d="M7 51 C22 46 34 50 43 46 V62 L10 58.8 Q7 58.5 7 55.5Z M45 45 C60 41 70 46 81 41 V55.5 Q81 58.5 78 58.8 L45 62Z" fill="#8a5434" opacity=".45"/>
+  <path d="M7 16.5 Q7 13.5 10 13.2 L43 10 V62 L10 58.8 Q7 58.5 7 55.5Z M45 10 L78 13.2 Q81 13.5 81 16.5 V55.5 Q81 58.5 78 58.8 L45 62Z" fill="url(#sh${k})"/>
+  <circle cx="62" cy="15.4" r="1.3" fill="#111"/></svg>`; }
 const DEVICE = dev('white');
 const CHECK = '<svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg>';
 const BANG = '<svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 2.5v4.2M6 9.3v.1"/></svg>';
