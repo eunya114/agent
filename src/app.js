@@ -5,6 +5,7 @@ function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(
 
 function cardHTML(c){
   let h = `<div class="card in"><div class="ch"><div class="ch-m"><div class="ch-t">${I[c.icon]||''}<span>${c.title}</span></div>${c.sub?`<div class="ch-s">${c.sub}</div>`:''}</div>${c.headThumb?`<div class="hthumb">${DEVICE}</div>`:''}</div>`;
+  if(c.ticket) h += `<div class="ticket"><div class="tk-l">${I.gift}<div><b>${c.ticket[0]}</b><small>${c.ticket[2]}</small></div></div><div class="tk-v">${c.ticket[1]}</div></div>`;
   if(c.hero) h += `<div class="hero"><div class="hl">${c.hero[0]}</div><div class="hv">${c.hero[1]}</div></div>`;
   if(c.meter) h += `<div class="meter"><div class="mt"><span>${c.meter[0]}</span><span>${c.meter[3]}</span></div><div class="mb"><i style="width:${c.meter[1]/c.meter[2]*100}%"></i></div></div>`;
   if(c.chips) h += `<div class="chips">${c.chips.map(x=>`<span class="${x[1]?'hot':''}">${CHECK}${x[0]}</span>`).join('')}</div>`;
