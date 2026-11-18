@@ -86,7 +86,7 @@ let elapsed=0, lastT=performance.now();
 })(performance.now());
 
 /* ---------- 메타 / 목록 ---------- */
-const num = i => S[i].tag ? S[i].tag : i + (S[0].tag ? 0 : 1);
+const num = i => S[i].tag ? S[i].tag : S.slice(0,i+1).filter(x=>!x.tag).length;
 function renderList(){
   $('list').innerHTML = S.map((s,i)=>`<button class="sc ${i===si?'on':''}" data-i="${i}">
     <div class="sc-top"><span class="sc-num ${s.tag?'tag':''}">${num(i)}</span><div style="min-width:0"><div class="sc-name">${s.name}</div><div class="sc-title">${s.title}</div></div><span class="sc-stage">${s.stage}</span></div>
