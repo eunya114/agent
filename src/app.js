@@ -15,8 +15,9 @@ function cardHTML(c){
   if(c.rec) h += `<div class="rec"><b>${c.rec[0]}</b>${c.rec[1]}</div>`;
   if(c.otp) h += `<div class="otp"><span>${c.otp[0]}</span><em>${c.otp[1]}</em></div>`;
   if(c.cons) h += `<div class="cons">${c.cons.map(x=>`<div><i>${CHECK}</i><span>${x}</span><u>보기</u></div>`).join('')}</div>`;
-  if(c.rows && c.thumb) h += `<div class="thumbrow"><div class="thumb">${DEVICE}</div><div class="rows" style="flex:1;min-width:0">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div></div>`;
-  else if(c.rows) h += `<div class="rows">${c.rows.map(r=>`<div class="row"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div>`;
+  const rowsH = c.rows ? `<div class="rows" style="flex:1;min-width:0">${c.rows.map(r=>`<div class="row${r[2]?' hl':''}"><div class="l">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('')}</div>` : '';
+  if(c.rows && c.thumb) h += `<div class="thumbrow"><div class="thumb">${dev(c.thumb==='black'?'black':'white')}</div>${rowsH}</div>`;
+  else if(c.rows) h += rowsH;
   if(c.steps) h += `<div class="steps">${c.steps.map(s=>`<div class="st ${s[0]}"><span class="dot">${s[0]==='done'?CHECK:s[0]==='hold'?BANG:''}</span><div><div class="tt">${s[1]}</div>${s[2]?`<div class="dd">${s[2]}</div>`:''}</div></div>`).join('')}</div>`;
   if(c.ben) h += `<div class="ben">${c.benLabel?`<p class="ben-l">${c.benLabel}</p>`:''}${c.ben.map(b=>`<div><div class="bt"><p>${b[0]}</p><span>${b[1]}</span></div><span class="dday ${b[3]?'hot':''}">${b[2]}</span></div>`).join('')}</div>`;
   if(c.review) h += `<div class="review"><div class="stars">${c.review[0]}</div>${c.review[1]}</div>`;
@@ -49,9 +50,11 @@ async function playStep(s){
   else if(s.card){ await typing(); const n=add(el(cardHTML(s.card))); await sleep(1600 + (s.card.rows||s.card.steps||s.card.reasons||[]).length*350);
     if(s.card.press!=null){ const p=n.querySelectorAll('.pill')[s.card.press]; p.classList.add('press'); await sleep(260); p.classList.remove('press'); await sleep(700); } }
   else if(s.choice){ await typing();
-    const n=add(el(`<div class="choice in"><div class="q">${s.choice}</div>${s.o.map((o,i)=>`<div class="opt"><span class="n">${i+1}</span><span class="lb">${o}</span>${CM}</div>`).join('')}</div>`));
+    const n=add(el(`<div class="choice in"><div class="q">${s.choice}</div>${s.o.map((o,i)=> typeof o==='string'
+      ? `<div class="opt"><span class="n">${i+1}</span><span class="lb">${o}</span>${CM}</div>`
+      : `<div class="opt pic"><span class="im">${o.img==='white'||o.img==='black'?dev(o.img):(I[o.img]||'')}</span><span class="lb"><b>${o.t}</b>${o.s?`<small>${o.s}</small>`:''}</span>${CM}</div>`).join('')}</div>`));
     await sleep(1600); n.querySelectorAll('.opt').forEach((o,i)=>o.classList.add(i===s.sel?'sel':'dim'));
-    await sleep(600); add(el(`<div class="u-row in"><div class="u">${s.o[s.sel]}</div></div>`)); await sleep(800); }
+    await sleep(600); add(el(`<div class="u-row in"><div class="u">${typeof s.o[s.sel]==='string'?s.o[s.sel]:(s.o[s.sel].u||s.o[s.sel].t)}</div></div>`)); await sleep(800); }
   else if(s.div){ add(el(`<div class="div in">${s.div}</div>`)); await sleep(700); }
   else if(s.push){ if(instant) return; $('pt').innerHTML=s.push.t; $('px').innerHTML=s.push.x; const p=$('push'); p.classList.add('show'); await sleep(2600); p.classList.remove('show'); await sleep(500); }
 }

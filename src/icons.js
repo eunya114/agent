@@ -1,5 +1,18 @@
-/* 공통 아이콘 · 체크 마크 */
-const DEVICE = '<svg viewBox="0 0 60 80" fill="none"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe9f7"/><stop offset="1" stop-color="#9fb9e0"/></linearGradient><linearGradient id="ds" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c6dcff"/><stop offset=".55" stop-color="#7fa8ec"/><stop offset="1" stop-color="#b7cdf5"/></linearGradient></defs><rect x="6" y="6" width="26" height="66" rx="6" fill="url(#dg)" stroke="#aab6c8"/><circle cx="14" cy="16" r="3.4" fill="#2b2f36"/><circle cx="14" cy="25" r="3.4" fill="#2b2f36"/><circle cx="14" cy="34" r="3.4" fill="#2b2f36"/><rect x="26" y="10" width="28" height="64" rx="6" fill="#1d2025"/><rect x="28" y="12" width="24" height="60" rx="4.5" fill="url(#ds)"/><path d="M45 26c-6-3-12 1-9 6s10 3 7 10-10 4-11 2" stroke="#fff" stroke-opacity=".75" stroke-width="3.5" stroke-linecap="round"/></svg>';
+/* 공통 아이콘 · 단말 일러스트 · 체크 마크 */
+let _dg=0;
+/* iPhone Duo 일러스트 (예시 이미지) · color: white | black */
+function dev(color){ const k=++_dg, w=color!=='black';
+  const frame=w?'#e6e7ea':'#2a2c31', edge=w?'#c3c6cc':'#15161a', back=w?'#f3f3f5':'#3a3d44';
+  return `<svg viewBox="0 0 64 86" fill="none"><defs><linearGradient id="sk${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e7d3"/><stop offset=".45" stop-color="#e7c39a"/><stop offset="1" stop-color="#a8714a"/></linearGradient></defs>
+  <rect x="4" y="8" width="30" height="70" rx="7" fill="${back}" stroke="${edge}"/>
+  <rect x="9" y="13" width="13" height="22" rx="5" fill="${w?'#e2e3e6':'#2b2d33'}" stroke="${edge}" stroke-width=".8"/>
+  <circle cx="15.5" cy="19.5" r="3.6" fill="#1c1d21"/><circle cx="15.5" cy="29" r="3.6" fill="#1c1d21"/>
+  <rect x="24" y="5" width="36" height="76" rx="8" fill="${frame}" stroke="${edge}"/>
+  <rect x="26.5" y="7.5" width="31" height="71" rx="6" fill="url(#sk${k})"/>
+  <path d="M26.5 52c8-6 17-4 31-12v38.5h-31z" fill="#c08a5c" opacity=".55"/>
+  <path d="M26.5 62c10-5 20-2 31-8v24.5h-31z" fill="#8e5a37" opacity=".5"/>
+  <rect x="38" y="10" width="8" height="2.4" rx="1.2" fill="#111"/></svg>`; }
+const DEVICE = dev('white');
 const CHECK = '<svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg>';
 const BANG = '<svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 2.5v4.2M6 9.3v.1"/></svg>';
 const CM = '<svg class="cm" viewBox="0 0 20 20" fill="none" stroke="#e5007e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>';
@@ -18,5 +31,3 @@ const I = {
   truck:'<svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linejoin="round"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3v3h-7z"/><circle cx="6.5" cy="17.5" r="1.8" fill="#fff"/><circle cx="16.5" cy="17.5" r="1.8" fill="#fff"/></svg>',
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16 9.5"/></svg>',
 };
-
-/* ---------- 시나리오 데이터 (값은 예시) ---------- */
