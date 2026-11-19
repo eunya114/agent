@@ -128,6 +128,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .rcpt{background:var(--c-white);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
 .rc-t span{display:block;font-size:13px;line-height:19px;color:var(--c-text-4)}
 .rc-t b{display:block;font-size:24px;line-height:32px;font-weight:900;letter-spacing:-.02em;color:var(--c-brand);font-variant-numeric:tabular-nums;margin-top:2px}
+.rc-t b s{font-size:14px;font-weight:400;color:var(--c-text-4);margin-right:6px}
 .rc-l{display:flex;flex-direction:column;gap:7px;border-top:1px dashed #d9d9d9;padding-top:12px}
 .ln{display:flex;justify-content:space-between;gap:12px;font-size:14px;line-height:20px;font-variant-numeric:tabular-nums}
 .ln span:first-child{color:#555;min-width:0}
