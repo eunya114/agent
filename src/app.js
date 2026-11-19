@@ -11,7 +11,7 @@ function cardHTML(c){
   if(c.hero) h += `<div class="hero"><div class="hl">${c.hero[0]}</div><div class="hv">${c.hero[1]}</div></div>`;
   if(c.meter) h += `<div class="meter"><div class="mt"><span>${c.meter[0]}</span><span>${c.meter[3]}</span></div><div class="mb"><i style="width:${c.meter[1]/c.meter[2]*100}%"></i></div></div>`;
   if(c.chips) h += `<div class="chips">${c.chips.map(x=>`<span class="${x[1]?'hot':''}">${CHECK}${x[0]}</span>`).join('')}</div>`;
-  if(c.cmp) h += `<div class="cmp">${c.cmp.map(x=>`<div class="${x.win?'win':''}"><div class="l">${x.l}</div><div class="v">${x.v}</div><div class="n">${x.n}</div></div>`).join('')}</div>`;
+  if(c.cmp) h += `<div class="cmp${c.cmp.some(x=>x.win)?' has-win':''}">${c.cmp.map(x=>`<div class="${x.win?'win':''}"><div class="l">${x.l}</div><div class="v">${x.v}</div><div class="n">${x.n}</div></div>`).join('')}</div>`;
   if(c.warn) h += `<div class="warnbox"><div class="reason warn"><span class="ck">${BANG}</span><div><b>${c.warn[0]}</b><small>${c.warn[1]}</small></div></div></div>`;
   if(c.reasons) h += `<div class="reasons">${c.reasons.map(r=>`<div class="reason"><span class="ck">${CHECK}</span><div>${r[0]}</div></div>`).join('')}</div>`;
   if(c.bars){ const m=12; h += `<div><div class="bars">${c.bars.map((v,i)=>`<div><span style="height:${v/m*100}%"></span><em>${['5월','6월','7월','8월','9월','10월'][i]}</em></div>`).join('')}</div><div class="bar-legend" style="margin-top:8px"><span>${c.barLegend[0]}</span><span>${c.barLegend[1]}</span></div></div>`; }
