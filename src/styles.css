@@ -114,6 +114,27 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .reason.warn .ck{background:var(--c-warn)}
 .reason small{display:block;font-size:13px;color:var(--c-text-4);line-height:19px}
 .warnbox{background:var(--c-warn-bg);border-radius:16px;padding:14px 16px}
+.evts{display:flex;flex-direction:column;gap:8px}
+.evt{display:flex;align-items:center;gap:12px;background:var(--c-white);border-radius:16px;padding:10px 10px 10px 10px;border:1.5px solid transparent;transition:transform .15s}
+.evt.hot{border-color:#f7cfe3}
+.evt.press{transform:scale(.97);filter:brightness(.96)}
+.ev-ic{flex:none;width:48px;height:48px;border-radius:12px;background:linear-gradient(160deg,#ffffff,#eceef2);box-shadow:inset 0 0 0 1px #ececec;display:grid;place-items:center}
+.evt.hot .ev-ic{background:var(--c-brand-low);box-shadow:none}
+.evt.hot .ev-ic svg *{stroke:var(--c-brand)}
+.ev-ic svg{width:24px;height:24px}
+.ev-t{flex:1;min-width:0;display:flex;flex-direction:column}
+.ev-t span{font-size:12px;line-height:17px;color:var(--c-text-4)}
+.ev-t b{font-size:15px;line-height:22px;font-weight:700}
+.ev-t small{font-size:12px;line-height:17px;color:var(--c-text-4)}
+.ev-r{flex:none;display:flex;align-items:center;gap:2px}
+.ev-r svg{width:18px;height:18px}
+.bnr{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--c-brand-low);border:1px solid #f7cfe3;border-radius:18px;padding:16px 18px}
+.bnr small{display:block;font-size:13px;line-height:19px;color:var(--c-text)}
+.bnr b{display:block;font-size:21px;line-height:29px;font-weight:900;color:var(--c-brand);letter-spacing:-.02em}
+.bnr em{display:block;font-style:normal;font-size:12px;line-height:17px;color:var(--c-text-4);margin-top:2px}
+.bnr-ic{flex:none;width:52px;height:52px;border-radius:50%;background:var(--c-white);display:grid;place-items:center}
+.bnr-ic svg{width:28px;height:28px}
+.bnr-ic svg *{stroke:var(--c-brand)}
 .ticket{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--c-brand-low);color:var(--c-text);border:1px solid #f7cfe3;border-radius:16px;padding:12px 16px}
 .ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:var(--c-high);border:1px solid #f7cfe3}
 .ticket::before{clip-path:inset(0 0 0 50%)}.ticket::after{clip-path:inset(0 50% 0 0)}

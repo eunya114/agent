@@ -5,6 +5,8 @@ function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(
 
 function cardHTML(c){
   let h = `<div class="card in"><div class="ch"><div class="ch-m"><div class="ch-t">${I[c.icon]||''}<span>${c.title}</span></div>${c.sub?`<div class="ch-s">${c.sub}</div>`:''}</div>${c.headThumb?`<div class="hthumb">${DEVICE}</div>`:''}</div>`;
+  if(c.banner) h += `<div class="bnr"><div><small>${c.banner[0]}</small><b>${c.banner[1]}</b><em>${c.banner[2]}</em></div><span class="bnr-ic">${I.gift}</span></div>`;
+  if(c.events) h += `<div class="evts">${c.events.map(e=>`<div class="evt${e[5]?' hot':''}"><span class="ev-ic">${I[e[0]]||''}</span><div class="ev-t"><span>${e[1]}</span><b>${e[2]}</b><small>${e[3]}</small></div><span class="ev-r"><span class="dday${e[5]?' hot':''}">${e[4]}</span><svg viewBox="0 0 24 24" fill="none" stroke="#9a9a9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></div>`).join('')}</div>`;
   if(c.ticket) h += `<div class="ticket"><div class="tk-l">${I.gift}<div><b>${c.ticket[0]}</b><small>${c.ticket[2]}</small></div></div><div class="tk-v">${c.ticket[1]}</div></div>`;
   if(c.receipt){ const r=c.receipt; h += `<div class="rcpt"><div class="rc-t"><span>${r.total[0]}</span><b>${r.total[1]}</b></div><div class="rc-l">${r.lines.map(l=>`<div class="ln ${l[2]||''}"><span>${l[0]}</span><span>${l[1]}</span></div>`).join('')}</div></div>`; }
   if(c.track){ const t=c.track; h += `<div class="trk"><div class="tk-top"><span class="car">${t.carrier}</span><span class="eta">${t.eta}</span></div><div class="tk-no"><small>송장번호</small><b>${t.no}</b></div><div class="tk-steps">${t.steps.map((x,i)=>`<div class="${i<=t.cur?'on':''}${i===t.cur?' now':''}"><i></i><span>${x}</span></div>`).join('')}</div></div>${t.item?`<div class="tk-item"><span class="mini">${DEVICE}</span><div><b>${t.item[0]}</b><small>${t.item[1]}</small></div></div>`:''}`; }
@@ -51,6 +53,7 @@ async function playStep(s){
   if(s.u){ add(el(`<div class="u-row in"><div class="u">${s.u}</div></div>`)); await sleep(900); }
   else if(s.a){ await typing(); add(el(`<div class="a in">${s.a}</div>`)); await sleep(1300 + s.a.length*18); }
   else if(s.card){ await typing(); const n=add(el(cardHTML(s.card))); await sleep(1600 + (s.card.rows||s.card.steps||s.card.reasons||[]).length*350);
+    if(s.card.pressEvt!=null){ const p=n.querySelectorAll('.evt')[s.card.pressEvt]; await sleep(300); p.classList.add('press'); await sleep(260); p.classList.remove('press'); await sleep(500); }
     if(s.card.press!=null){ const p=n.querySelectorAll('.pill')[s.card.press]; p.classList.add('press'); await sleep(260); p.classList.remove('press'); await sleep(700); } }
   else if(s.choice){ await typing();
     const n=add(el(`<div class="choice in"><div class="q">${s.choice}</div>${s.o.map((o,i)=> typeof o==='string'
